@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-DuckBlue: #a7d8c7;
+  --color-LightGreen: #65a8ad;
+  --color-LigntGrey: #f5f5f5;
+  --color-Dark: #070f2b;
+  --color-Steel: #707991;
+  --color-Blue: #1a9cff;
+}
+body {
+  @apply bg-white  dark:bg-Dark;
+}
+
+@layer base {
+  * {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  h2 {
+    @apply text-[16px] font-semibold leading-1.5 text-Dark dark:text-LigntGrey;
+  }
+  p {
+    @apply text-[14px] font-normal leading-1 text-Steel;
+  }
+  pxs {
+    @apply text-xs font-normal  text-Steel;
+  }
+}

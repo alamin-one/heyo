@@ -1,0 +1,71 @@
+{
+  "users": {
+    "user1": {
+      "username": "Rahim",
+      "email": "rahim@gmail.com",
+      "avatar": "rahim.jpg"
+    },
+
+    "user2": {
+      "username": "Karim",
+      "email": "karim@gmail.com",
+      "avatar": "karim.jpg"
+    },
+
+    "user3": {
+      "username": "Hasan",
+      "email": "hasan@gmail.com",
+      "avatar": "hasan.jpg"
+    }
+  },
+
+  "chats": {
+    "chat1": {
+      "createdAt": 1710000000000,
+
+      "messages": [
+        {
+          "senderId": "user1",
+          "text": "Hi Karim",
+          "createdAt": " new Date()"
+        }
+      ]
+    }
+  },
+
+  "userchats": {
+    "user1": {
+      "chats": [
+        {
+          "chatId": "chat1",
+          "receiverId": "user2",
+          "lastMessage": "Hello Rahim",
+          "isSeen": true,
+          "updatedAt": 1711111111111
+        }
+      ]
+    },
+
+    "user2": {
+      "chats": [
+        {
+          "chatId": "chat1",
+          "receiverId": "user1",
+          "lastMessage": "Hello Rahim",
+          "updatedAt": 1711111111111
+        }
+      ]
+    },
+
+    "user3": {
+      "chats": [
+        {
+          "chatId": "chat2",
+          "receiverId": "user1",
+          "lastMessage": "Hello Rahim",
+          "updatedAt": 1712222222222
+        }
+      ]
+    }
+  }
+}
