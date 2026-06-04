@@ -1,5 +1,15 @@
+import Homepage from './pages/HomePage';
+// import LoginPage from './pages/LoginPage';
+
 function App() {
-  return <>helo</>;
+  return (
+    <>
+      <main>
+        <Homepage />
+        {/* <LoginPage /> */}
+      </main>
+    </>
+  );
 }
 
 export default App;

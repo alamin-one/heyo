@@ -9,7 +9,7 @@
   --color-Blue: #1a9cff;
 }
 body {
-  @apply bg-white  dark:bg-Dark;
+  @apply bg-Steel/10  dark:bg-Dark/98;
 }
 
 @layer base {
@@ -19,12 +19,15 @@ body {
     padding: 0;
   }
   h2 {
-    @apply text-[16px] font-semibold leading-1.5 text-Dark dark:text-LigntGrey;
+    @apply text-[16px] font-semibold  text-Dark dark:text-LigntGrey;
   }
   p {
-    @apply text-[14px] font-normal leading-1 text-Steel;
+    @apply text-[14px] font-normal text-Steel;
   }
-  pxs {
+  .pxs {
     @apply text-xs font-normal  text-Steel;
+  }
+  label {
+    @apply text-Steel;
   }
 }
