@@ -1,73 +1,94 @@
+# Heyo — Real-time Chat App
 
-## i npm install emoji-picker-react
+A real-time chat application built with React and Firebase.
 
+## Live Demo
 
+[heyo-chat.vercel.app](#)
 
+---
 
+## Features
 
-   
-jsx<EmojiPicker
-  open={open}
-  onEmojiClick={handleEmoji}
-  theme="dark"
-  width={300}
-  height={400}
-/>
-// কোনো import লাগে না!
-// কোনো install লাগে না!
-// সরাসরি use করো ✅
+- Real-time messaging with Firebase Firestore
+- User authentication (Register / Login / Logout)
+- Image sharing via Cloudinary
+- Emoji picker support
+- User search with debounce
+- Mobile responsive with back navigation
+- Dark / Light mode
+- PWA support
+- Profile update with avatar
 
-URL.createObjectURL(file)
+---
 
+## Tech Stack
 
+| Frontend        | Backend            |
+| --------------- | ------------------ |
+| React 19        | Firebase Firestore |
+| React Router    | Firebase Auth      |
+| Tailwind CSS    | Cloudinary         |
+| React Hot Toast |                    |
+| Emoji Picker    |                    |
 
-কোন field কেন?
-whispr_users এ:
+---
 
-uid → Firebase Auth এর id, সব কিছুর key
-username → unique নাম (@alamin style)
-displayName → profile এ দেখানো নাম
-avatar → Cloudinary URL, শুরুতে ""
-bio → ছোট description, শুরুতে ""
-blocked → block করা users এর uid list
+## Project Structure
 
-whispr_chats এ:
-
-members → [userA_uid, userB_uid] — কে কে এই chat এ আছে
-lastMessage → chat list এ preview দেখানোর জন্য
-messages[] → প্রতিটা message object, img field টা optional (image পাঠালে URL থাকবে)
-
-whispr_usersChats এ:
-
-এটা bridge — কোন user কোন chat এ আছে সেটা track করে
-isSeen → message পড়া হয়েছে কিনা (blue tick এর মতো) 😄
-
-
-
-
-arrayUnion
-
-
-block checded 
-
-
-
+```
 src/
-  pages/
-    LoginPage.jsx
-    RegisterPage.jsx
-    HomePage.jsx
-  components/
-    sidebar/
-      Sidebar.jsx
-      ChatList.jsx
-      ChatItem.jsx
-    chat/
-      ChatWindow.jsx
-      MessageList.jsx
-      MessageBubble.jsx
-      MessageInput.jsx
-    shared/
-      Avatar.jsx
-      SearchBar.jsx
-      UserInfo.jsx
+├── assets/         # icons, images
+├── components/     # shared UI components
+│   ├── context/    # auth context
+│   ├── chat/       # chat components
+│   └── sidebar/    # sidebar components
+├── lib/            # utility functions
+├── pages/          # all pages
+└── firebase.js     # firebase config
+```
+
+---
+
+## Getting Started
+
+```bash
+# install dependencies
+npm install
+
+# start dev server
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file:
+
+```
+VITE_API_KEY=
+VITE_AUTH_DOMAIN=
+VITE_PROJECT_ID=
+VITE_STORAGE_BUCKET=
+VITE_MESSAGING_SENDER_ID=
+VITE_APP_ID=
+```
+
+---
+
+## Repository
+
+[github.com/alamin-one/heyo](https://github.com/alamin-one/heyo)
+
+---
+
+## Developed by
+
+**Al-Amin** — [github.com/alamin-one](https://github.com/alamin-one)
+
+---
+
+## License
+
+MIT
