@@ -1,6 +1,8 @@
 import { FaBars } from 'react-icons/fa6';
 import { IoIosSearch } from 'react-icons/io';
 import { FaImage } from 'react-icons/fa6';
+import { FaCamera } from 'react-icons/fa';
+import { RiCloseLargeLine } from 'react-icons/ri';
 
 import { FaPhoneAlt } from 'react-icons/fa';
 import { HiDotsVertical } from 'react-icons/hi';
@@ -15,5 +17,7 @@ const icon = {
   dot: <HiDotsVertical />,
   emoji: <BsEmojiSmile />,
   send: <IoSendSharp />,
+  camera: <FaCamera />,
+  close: <RiCloseLargeLine />,
 };
 export default icon;

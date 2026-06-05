@@ -9,8 +9,8 @@
   --color-Blue: #1a9cff;
 }
 body {
-  @apply bg-Steel/10  dark:bg-Dark/98;
-}
+  @apply dark:bg-[#0B192C] bg-Dark;
+ }
 
 @layer base {
   * {

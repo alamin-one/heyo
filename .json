@@ -3,67 +3,85 @@
     "user1": {
       "username": "Rahim",
       "email": "rahim@gmail.com",
-      "avatar": "rahim.jpg"
+      "avatar": "rahim.jpg",
+      "block": []
     },
-
     "user2": {
       "username": "Karim",
       "email": "karim@gmail.com",
-      "avatar": "karim.jpg"
+      "avatar": "karim.jpg",
+      "block": []
     },
-
     "user3": {
-      "username": "Hasan",
-      "email": "hasan@gmail.com",
-      "avatar": "hasan.jpg"
-    }
-  },
-
-  "chats": {
-    "chat1": {
-      "createdAt": 1710000000000,
-
-      "messages": [
-        {
-          "senderId": "user1",
-          "text": "Hi Karim",
-          "createdAt": " new Date()"
-        }
-      ]
+      "username": "Jamal",
+      "email": "jamal@gmail.com",
+      "avatar": "jamal.jpg",
+      "block": []
     }
   },
 
   "userchats": {
     "user1": {
-      "chats": [
+      "chatlist": [
         {
           "chatId": "chat1",
           "receiverId": "user2",
-          "lastMessage": "Hello Rahim",
+          "lastMessage": "Ki obostha Karim?",
           "isSeen": true,
           "updatedAt": 1711111111111
-        }
-      ]
-    },
-
-    "user2": {
-      "chats": [
-        {
-          "chatId": "chat1",
-          "receiverId": "user1",
-          "lastMessage": "Hello Rahim",
-          "updatedAt": 1711111111111
-        }
-      ]
-    },
-
-    "user3": {
-      "chats": [
+        },
         {
           "chatId": "chat2",
-          "receiverId": "user1",
-          "lastMessage": "Hello Rahim",
-          "updatedAt": 1712222222222
+          "receiverId": "user3",
+          "lastMessage": "Jamal kemon acho?",
+          "isSeen": false,
+          "updatedAt": 1711111222222
+        },
+        {
+          "chatId": "chat2",
+          "receiverId": "user3",
+          "lastMessage": "Jamal kemon acho?",
+          "isSeen": false,
+          "updatedAt": 1711111222222
+        }
+      ]
+    }
+
+  },
+
+  "chats": {
+    "chat1": {
+      "createdAt": 1710000000000,
+      "messages": [
+        {
+          "senderId": "user1",
+          "text": "Hi Karim!",
+          "createdAt": 1711111000000
+        },
+        {
+          "senderId": "user2",
+          "text": "Hello Rahim bhai!",
+          "createdAt": 1711111050000
+        },
+        {
+          "senderId": "user1",
+          "text": "Ki obostha Karim?",
+          "createdAt": 1711111111111
+        }
+      ]
+    },
+    "chat2": {
+      "createdAt": 1710000111111,
+      "messages": [
+        {
+          "senderId": "user3",
+          "text": "Rahim bhai assalamu alaikum!",
+          "createdAt": 1711111200000
+        },
+        {
+          "senderId": "user1",
+          "text": "Jamal kemon acho?",
+          "createdAt": 1711111222222
         }
       ]
     }

@@ -1,13 +1,14 @@
-import Homepage from './pages/HomePage';
-// import LoginPage from './pages/LoginPage';
+import { Toaster } from 'react-hot-toast';
+import AuthContextProvider from './components/context/auth/AuthContextProvider';
+import Layout from './pages/Layout';
 
 function App() {
   return (
     <>
-      <main>
-        <Homepage />
-        {/* <LoginPage /> */}
-      </main>
+      <AuthContextProvider>
+        <Toaster position="top-center" reverseOrder={false} />
+        <Layout />
+      </AuthContextProvider>
     </>
   );
 }
