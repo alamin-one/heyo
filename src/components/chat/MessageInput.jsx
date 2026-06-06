@@ -1,11 +1,10 @@
 import { db } from '../../firebase';
 import { useAuthContext } from '../context/auth/AuthContextProvider';
-import { arrayUnion, doc, setDoc } from 'firebase/firestore';
+import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import EmojiPicker from 'emoji-picker-react';
 import { useState } from 'react';
 import urlGenerator from '../lib/urlGenerator';
 import icon from '../../assets/icon';
-
 
 /*  */
 const MessageInput = ({ currentChat }) => {
@@ -36,25 +35,54 @@ const MessageInput = ({ currentChat }) => {
 
   /* handle submit */
   const handleSubmit = async () => {
+    const currentText = message.text;
     const docRef = doc(db, 'app', 'heyo', 'chats', currentChat.chatId);
     await setDoc(
       docRef,
       {
         messages: arrayUnion({
           senderId: currentUser.id,
-          text: message.text,
+          text: currentText,
           img: message.img,
           createdAt: Date.now(),
         }),
       },
       { merge: true },
     );
+
+    /* update last message and time */
+    const cdocRef = doc(db, 'app', 'heyo', 'userchats', currentUser.id);
+    const snap = await getDoc(cdocRef);
+    if (snap.exists()) {
+      const chatlist = snap
+        .data()
+        ?.chatlist?.map(i =>
+          i.chatId === currentChat.chatId
+            ? { ...i, lastMessage: currentText, updatedAt: Date.now() }
+            : i,
+        );
+      await updateDoc(cdocRef, { chatlist });
+    }
+
+    /* update last message and time */
+    const rdocRef = doc(db, 'app', 'heyo', 'userchats', currentChat.receiverId);
+    const rsnap = await getDoc(rdocRef);
+    if (rsnap.exists()) {
+      const chatlist = rsnap.data()?.chatlist?.map(i => {
+        return i.chatId === currentChat.chatId
+          ? { ...i, lastMessage: currentText, updatedAt: Date.now() }
+          : i;
+      });
+      await updateDoc(rdocRef, { chatlist });
+    }
+
     setMessage({
       img: null,
       text: '',
     });
     setPrev(null);
   };
+
   const style = {
     icon: 'text-Steel absolute top-1/2 transform -translate-y-1/2',
   };
@@ -62,7 +90,7 @@ const MessageInput = ({ currentChat }) => {
   return (
     <>
       <div className="py-2.5 px-5  relative">
-        <div className={`${style.icon} left-10 cursor-pointer`}>
+        <div className={`${style.icon} text-xl left-10 cursor-pointer`}>
           <label>
             {icon.plus}
             <input
@@ -82,7 +110,7 @@ const MessageInput = ({ currentChat }) => {
         </div>
         <div
           onClick={() => handleSubmit()}
-          className={`${style.icon} right-10 cursor-pointer`}
+          className={`${style.icon} text-2xl right-10 cursor-pointer`}
         >
           {icon.send}
         </div>
@@ -90,10 +118,11 @@ const MessageInput = ({ currentChat }) => {
           type="text"
           name="message"
           placeholder="Message"
-          className="pl-13 md:pl-22 pr-12 py-5 text-xs text-Steel placeholder:text-[15px] placeholder:text-Steel 
+          className="pl-13 md:pl-22 pr-12 py-3 text-[16px] text-Steel placeholder:text-[15px] placeholder:text-Steel 
          focus:outline-none rounded-full w-full bg-white dark:bg-[#121B35]"
           value={message.text}
           onChange={e => handaleInput('text', e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && handleSubmit()}
         />
       </div>
       <div className="px-0 w-full ">

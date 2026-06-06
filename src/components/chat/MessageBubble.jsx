@@ -5,8 +5,8 @@ const MessageBubble = ({ msg }) => {
 
   /* style */
   const style = {
-    recUser: { borderRadius: '0px 15px 15px 15px' },
-    curUser: { borderRadius: '15px 0px 15px 15px' },
+    recUser: { borderRadius: '0px 20px 20px 20px' },
+    curUser: { borderRadius: '20px 0px 20px 20px' },
   };
 
   return (
@@ -15,7 +15,7 @@ const MessageBubble = ({ msg }) => {
         className={`w-full flex  ${msg.senderId === currentUser.id ? 'justify-end ' : 'justify-start'}`}
       >
         <div
-          className={` bg-white  backdrop-blur-2xl w-5/7 md:w-3/6  ${msg.senderId === currentUser.id ? ' dark:bg-LightGreen/30' : 'dark:bg-LightGreen/50'}`}
+          className={`border border-Steel/50 backdrop-blur-[2px]  w-5/7 md:w-3/6  ${msg.senderId === currentUser.id ? '' : ''}`}
           style={
             msg.senderId === currentUser.id ? style.curUser : style.recUser
           }

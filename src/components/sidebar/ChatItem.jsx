@@ -31,9 +31,9 @@ const ChatItem = ({ setMessageID, list, setIsOpen }) => {
               minute: '2-digit',
             })}
           </div>
-          <div className="pxs text-white  w-5 h-5 rounded-full flex justify-center items-center bg-LightGreen">
+         {/*  <div className="pxs text-white  w-5 h-5 rounded-full flex justify-center items-center bg-LightGreen">
             1
-          </div>
+          </div> */}
         </div>
       </div>
     </>
