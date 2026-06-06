@@ -68,7 +68,7 @@ const UserInfo = ({ setIsOpenCanvas }) => {
       </div>
       {/* search suggestion */}
       <div
-        className={`w-full min-h-50 backdrop-blur-3xl absolute top-14 left-0 right-0 ${suggested.length > 0 ? 'block' : 'hidden'}`}
+        className={`w-full min-h-50 backdrop-blur-3xl absolute top-14 left-0 right-0 ${suggested?.length > 0 ? 'block' : 'hidden'}`}
       >
         {suggested?.map((u, i) => (
           <div
