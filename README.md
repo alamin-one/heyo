@@ -4,7 +4,7 @@ A real-time chat application built with React and Firebase.
 
 ## Live Demo
 
-[heyo-chat.vercel.app](#)
+[Live Preview](https://alamin-heyo.vercel.app/)
 
 ---
 

@@ -62,7 +62,7 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       getCurrentUser(user);
-      setLoading(false)
+      setLoading(false);
     });
   }, []);
 
@@ -82,8 +82,11 @@ const AuthContextProvider = ({ children }) => {
       });
       setLoading(false);
     } catch (err) {
-      console.log(err);
-      setError(true);
+      if (err.code === 'auth/email-already-in-use') {
+        toast.error('Email already registered!');
+      } else {
+        toast.error('Something went wrong!');
+      }
     }
   };
 
