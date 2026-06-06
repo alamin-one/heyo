@@ -13,7 +13,7 @@ export default defineConfig({
         name: 'Heyo',
         short_name: 'Heyo',
         description: 'Heyo Chat App',
-        theme_color: '#ffffff',
+        theme_color: '#0B192C',
         icons: [
           {
             src: '/icon-192x192.png',
