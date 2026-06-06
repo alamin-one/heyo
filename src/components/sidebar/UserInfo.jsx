@@ -39,7 +39,7 @@ const UserInfo = ({ setIsOpenCanvas }) => {
         onClick={() => setIsOpenCanvas(prev => !prev)}
       >
         <img
-          src={currentUser.avatar}
+          src={currentUser?.avatar}
           alt="useravater"
           className="rounded-full mr-1 w-full h-full object-contain"
         />
@@ -70,20 +70,20 @@ const UserInfo = ({ setIsOpenCanvas }) => {
       <div
         className={`w-full min-h-50 backdrop-blur-3xl absolute top-14 left-0 right-0 ${suggested.length > 0 ? 'block' : 'hidden'}`}
       >
-        {suggested.map((u, i) => (
+        {suggested?.map((u, i) => (
           <div
             key={i}
             className="py-3 px-5 mb-0 border-b border-gray-200  dark:border-gray-800/60  flex items-center gap-2 hover:bg-LigntGrey dark:hover:bg-white/5 "
           >
             <div className="w-7 h-7">
               <img
-                src={u.avatar}
+                src={u?.avatar}
                 alt="useravater"
                 className="rounded-full w-full h-full object-contain"
               />
             </div>
             <div className="flex-1">
-              <h2>{u.username}</h2>
+              <h2>{u?.username}</h2>
             </div>
 
             <button
